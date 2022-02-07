@@ -29,119 +29,72 @@ public class TetrominoMaker
 
     private Poly makeJBlock(){
         //gör en ny Squaretype[][], vars stolek beror på hur stort utrymme typen behöver
-        SquareType[][] squareArray = new SquareType[3][3];
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                //Fult, komma på bättre sätt?
-                if ((row==0 && col==0)||(row==1 && col==0)||
-                    (row==1 && col==1)||(row==1 && col==2)){
-                    //om rutan har rätt koordinater lägger vi till J
-                    squareArray[col][row] = SquareType.J;
-                }
-                else{
-                    //annars empty
-                    squareArray[col][row] = SquareType.EMPTY;
-                }
-            }
-        }
+        SquareType j = SquareType.J;
+        SquareType empty = SquareType.EMPTY;
+        SquareType[][] squareArray = { {j, j, empty},
+                {empty, j, empty},
+                {empty, j, empty}};
         //returnerar ett nytt polyobjekt
         Poly polyObject = new Poly(squareArray);
         return polyObject;
     }
 
     private Poly makeLBlock(){
-        SquareType[][] squareArray = new SquareType[3][3];
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                if ((row==1 && col==0)||(row==1 && col==1)||
-                    (row==1 && col==2)||(row==0 && col==2)){
-                    squareArray[col][row] = SquareType.L;
-                }
-                else{
-                    squareArray[col][row] = SquareType.EMPTY;
-                }
-            }
-        }
+        SquareType l = SquareType.L;
+        SquareType empty = SquareType.EMPTY;
+        SquareType[][] squareArray = {{empty, l, empty},
+                {empty, l, empty},
+                {l, l, empty}};
         Poly polyObject = new Poly(squareArray);
         return polyObject;
     }
 
     private Poly makeSBlock(){
-        SquareType[][] squareArray = new SquareType[3][3];
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                if ((row==0 && col==2)||(row==0 && col==1)||
-                    (row==1 && col==1)||(row==1 && col==0)){
-                    squareArray[col][row] = SquareType.S;
-                }
-                else{
-                    squareArray[col][row] = SquareType.EMPTY;
-                }
-            }
-        }
+        SquareType s = SquareType.S;
+        SquareType empty = SquareType.EMPTY;
+        SquareType[][] squareArray = { {empty, s, empty},
+                                        {s, s, empty},
+                                        {s, empty, empty}};
         Poly polyObject = new Poly(squareArray);
         return polyObject;
     }
 
     private Poly makeTBlock(){
-        SquareType[][] squareArray = new SquareType[3][3];
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                if ((row==1 && col==0)||(row==1 && col==1)||
-                    (row==1 && col==2)||(row==0 && col==1)){
-                    squareArray[col][row] = SquareType.T;
-                }
-                else{
-                    squareArray[col][row] = SquareType.EMPTY;
-                }
-            }
-        }
+        SquareType t = SquareType.T;
+        SquareType empty = SquareType.EMPTY;
+        SquareType[][] squareArray = {{empty, t, empty},
+                {t, t, empty},
+                {empty, t, empty}};
         Poly polyObject = new Poly(squareArray);
         return polyObject;
     }
 
     private Poly makeZBlock(){
-        SquareType[][] squareArray = new SquareType[3][3];
-        for (int row = 0; row < 3; row++) {
-            for (int col = 0; col < 3; col++) {
-                if ((row==0 && col==0)||(row==0 && col==1)||
-                    (row==1 && col==1)||(row==1 && col==2)){
-                    squareArray[col][row] = SquareType.Z;
-                }
-                else{
-                    squareArray[col][row] = SquareType.EMPTY;
-                }
-            }
-        }
+        SquareType z = SquareType.Z;
+        SquareType empty = SquareType.EMPTY;
+        SquareType[][] squareArray = {{z, empty, empty},
+                                     {z, z, empty},
+                                     {empty, z, empty} };
         Poly polyObject = new Poly(squareArray);
         return polyObject;
     }
 
     private Poly make0Block(){
-        SquareType[][] squareArray = new SquareType[2][2];
-        for (int row = 0; row < 2; row++) {
-            for (int col = 0; col < 2; col++) {
-                squareArray[col][row] = SquareType.O;
-            }
-        }
+        SquareType o = SquareType.O;
+        SquareType[][] squareArray = {{o, o},
+                {o, o}};
         Poly polyObject = new Poly(squareArray);
         return polyObject;
     }
 
     private Poly makeIBlock(){
-        SquareType[][] squareArray = new SquareType[4][4];
-        for (int row = 0; row < 4; row++) {
-            for (int col = 0; col < 4; col++) {
-                if ((row==1 && col==0)||(row==1 && col==1)||
-                    (row==1 && col==2)||(row==1 && col==3)){
-                    squareArray[col][row] = SquareType.I;
-                }
-                else{
-                    squareArray[col][row] = SquareType.EMPTY;
-                }
-            }
-        }
-        Poly polyObject = new Poly(squareArray);
+        SquareType i = SquareType.I;
+        SquareType empty = SquareType.EMPTY;
+        SquareType[][] squareArray = { {empty, i, empty, empty},
+                {empty, i, empty, empty},
+                {empty, i, empty, empty},
+                {empty, i, empty, empty}};
+    Poly polyObject = new Poly(squareArray);
         return polyObject;
     }
 

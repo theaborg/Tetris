@@ -28,7 +28,11 @@ public class TestBoard
     public static void main(String[] args) {
         Random RND = new Random();
         Board board = new Board(8, 10);
-        board.fillSquare(7, 9, board);
+        for (int i = 0; i <8 ; i++) {
+            for (int j = 0; j < 10; j++) {
+                board.fillSquare(i, j, board);
+            }
+        }
         TetrisViewer viewer = new TetrisViewer(board);
         viewer.show(board);
     }

@@ -24,8 +24,8 @@ public class Board
 		squares[col][row] = SquareType.EMPTY;
 	    }
 	}
-	//polyFalling = t.getPoly(2);
-	//fallingPos = new Point(0, 0);
+	polyFalling = t.getPoly(1);
+	fallingPos = new Point(0, 0);
     }
 
     public SquareType getSquareType(int x, int y) {
@@ -60,6 +60,7 @@ public class Board
 	//om x och y ligger inom polyns area
 	if((x>=fallingPos.x && x<=fallingPos.x+fallingSize) &&
 	   (y>=fallingPos.y && y<=fallingPos.y+fallingSize)){
+
 	    int internSquareX = x - fallingPos.x;
 	    int internSquareY = y-fallingPos.y;
 	    SquareType fallingSquare = polyFalling.getShape()[internSquareX][internSquareY];
