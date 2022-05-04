@@ -1,6 +1,5 @@
 package se.liu.thebo717.tetris;
 
-
 public class BoardToTextConverter
 {
     public String convertToText (Board board){
@@ -8,7 +7,7 @@ public class BoardToTextConverter
 	for (int row = 0; row < board.getHeight(); row++) {
 	    for (int col = 0; col < board.getWidth(); col++) {
 		//beroende på vilken squaretype det finns på (col, row)...
-		switch (board.getVisibleSquareAt(col, row)){
+		switch (board.getVisibleSquareAt(row, col)){
 		    case EMPTY:
 			boardString.append("- ");
 			break;

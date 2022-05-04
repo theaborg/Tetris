@@ -3,32 +3,38 @@ package se.liu.thebo717.tetris;
 import javax.swing.*;
 import java.awt.*;
 
+
 public class TetrisViewer
 {
-    private Board board;
+    private TetrisComponent tetrisComponent;
     private JFrame frame = new JFrame();
+    private BarComponent barComponent;
+    private Board board;
 
     public TetrisViewer(final Board board) {
-	this.board = board;
-
+	tetrisComponent = new TetrisComponent(board);
+	barComponent = new BarComponent(board);
     }
-    public void show(Board board){
-	//hämtar storlek från boarden
-	int width = board.getWidth();
-	int height = board.getHeight();
-	//gör en ny converter och JtextArea
-	BoardToTextConverter converter = new BoardToTextConverter();
-	JTextArea textArea = new JTextArea(height, width);
-	//fyller textArean med strängen som returneras från BoardToTextConverter
-	textArea.setText(converter.convertToText(board));
-	//sätter layouthanterare till borderlayout
+
+    public JFrame getFrame() {
+	return frame;
+    }
+
+    public TetrisComponent getTetrisComponent() {
+	return tetrisComponent;
+    }
+
+    public BarComponent getBarComponent() {
+	return barComponent;
+    }
+
+    public void show(){
+	frame.setJMenuBar(barComponent.getMenuBar());
 	frame.setLayout(new BorderLayout());
-	//lägger till textarean i frame och placerar den i mitten
-	frame.add(textArea, BorderLayout.CENTER);
-	//sätter all text till samma stil och storlek
-	textArea.setFont(new Font("Monospaced", Font.PLAIN, 20));
-	//gör fönstret synligt
+	frame.add(tetrisComponent);
+	frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 	frame.pack();
 	frame.setVisible(true);
     }
+
 }
